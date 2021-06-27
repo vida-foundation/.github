@@ -1,0 +1,60 @@
+# File Description
+.fileDescription:
+  file:     "issue-branch.yml"
+  org:      "Vida Foundation Uganda Inc."
+  version:  "1.0.0"
+  since:    "1.0.0"
+  authors:
+    - "@PabloAlexis611"
+  summary: >
+    YAML configuration settings for the 'Create Issue Branch'
+    GitHub App for the Vida Foundation organization.
+  see:
+    - "https://github.com/marketplace/actions/create-issue-branch"
+    - "https://github.com/robvanderleek/create-issue-branch/tree/master#configuration"
+
+# Specifies branch format.
+# i.e. issue-11
+branchName: short
+
+# Specifies branch names to auto-create depending on labels.
+branches:
+  - label: good first issue
+    prefix: feature/
+  - label: enhancement
+    prefix: feature/
+  - label: bug
+    prefix: bugfix/
+  - label: documentation
+    prefix: docs/
+  - label: question
+    skip: true
+  - label: wontfix
+    skip: true
+  - label: duplicate
+    skip: true
+  - label: help wanted
+    skip: true
+  - label: invalid
+    skip: true
+  - label: '*'
+    prefix: issues/
+
+# Branch from which to create branches off.
+defaultBranch: 'develop'
+
+# Close issues when branches are merged.
+autoCloseIssue: true
+
+# Automatically open a draft pull request.
+openDraftPR: true
+
+# Copy labels and assignee from issue to pull request.
+copyIssueLabelsToPR: true
+copyIssueAssigneeToPR: true
+
+# Comment to post by app bot.
+commentMessage: >
+  Hey there @${issue.assignee.login}! I have created a branch called
+  ***[${branchName}](${repository.html_url}/tree/${branchName})***
+  created for your assigned issue: *${issue.title}*
