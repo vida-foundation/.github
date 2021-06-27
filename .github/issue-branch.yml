@@ -54,7 +54,7 @@ copyIssueLabelsToPR: true
 copyIssueAssigneeToPR: true
 
 # Comment to post by app bot.
-commentMessage: >
+commentMessage: >-
   Hey there @${issue.assignee.login}! I have created a branch called
   ***[${branchName}](${repository.html_url}/tree/${branchName})***
   created for your assigned issue: *${issue.title}*
